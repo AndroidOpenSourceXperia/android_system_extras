@@ -271,13 +271,13 @@ int main(int argc, char *argv[]) {
         printf("%5d  ", procs[i]->pid);
 
         if (ws) {
-            printf("%6dK  %6dK  %6dK  ",
+            printf("%6zuK  %6zuK  %6zuK  ",
                 procs[i]->usage.rss / 1024,
                 procs[i]->usage.pss / 1024,
                 procs[i]->usage.uss / 1024
             );
         } else {
-            printf("%7dK  %6dK  %6dK  %6dK  ",
+            printf("%7zuK  %6zuK  %6zuK  %6zuK  ",
                 procs[i]->usage.vss / 1024,
                 procs[i]->usage.rss / 1024,
                 procs[i]->usage.pss / 1024,
@@ -286,7 +286,7 @@ int main(int argc, char *argv[]) {
         }
 
         if (has_swap) {
-            printf("%6dK  ", procs[i]->usage.swap / 1024);
+            printf("%6zuK  ", procs[i]->usage.swap / 1024);
         }
 
         printf("%s\n", cmdline);
@@ -314,15 +314,15 @@ int main(int argc, char *argv[]) {
     /* Print the total line */
     printf("%5s  ", "");
     if (ws) {
-        printf("%7s  %6ldK  %6ldK  ",
+        printf("%7s  %6luK  %6luK  ",
             "", total_pss / 1024, total_uss / 1024);
     } else {
-        printf("%8s  %7s  %6ldK  %6ldK  ",
+        printf("%8s  %7s  %6luK  %6luK  ",
             "", "", total_pss / 1024, total_uss / 1024);
     }
 
     if (has_swap) {
-        printf("%6ldK  ", total_swap);
+        printf("%6luK  ", total_swap);
     }
 
     printf("TOTAL\n");
